@@ -1,18 +1,24 @@
+import util.StringUtil;
+
 import java.util.*;
+
+import static util.StringUtil.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Scanner sc=new Scanner(System.in);
-        String A=sc.next();
-        String B=sc.next();
-        System.out.println(A.length()+B.length());
-        if(A.compareTo(B)>0)
-            System.out.println("Yes");
-        else System.out.println("No");
-        String capA = String.format("%s%s", A.substring(0, 1).toUpperCase(), A.substring(1));
-        String capB = String.format("%s%s", B.substring(0, 1).toUpperCase(), B.substring(1));
-        System.out.println(String.format("$s $s", capA, capB));
+        Scanner sc = new Scanner(System.in);
+        String A = sc.next();
+        String B = sc.next();
+        System.out.println(A.length() + B.length());
+        System.out.println(stringsCompare(A, B));
+        System.out.println(String.format("%s %s", upperFirst(A), upperFirst(B)));
+        Scanner scan = new Scanner(System.in);
+        String a = scan.next();
+        String b = scan.next();
+        scan.close();
+        boolean ret = isAnagram(a, b);
+        System.out.println((ret) ? "Anagrams" : "Not Anagrams");
     }
 }
